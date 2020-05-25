@@ -67,3 +67,51 @@ is_none(())
 is_none([])
 is_none({})
 is_none(set())
+
+
+def menu(wine, entree, dessert='pudding'):
+    return {'wine': wine, 'entree': entree, 'dessert': dessert}
+
+print(menu('chardonnay', 'chicken', 'cake'))
+print(menu(entree='beef', dessert='bagel', wine='bordeaux'))
+print(menu('chardonnay', 'chicken'))
+
+def buggy(arg, result=[]):
+    result.append(arg)
+    print(result)
+
+buggy(111)
+
+def works(arg):
+    result = []
+    result.append(arg)
+    return result
+
+print(works(111))
+print(works(222))
+
+def print_args(*args):
+    print('Positional argument tuple: ', args)
+
+print_args()
+print_args(1, 2, 3)
+
+def print_more(required1, required2, *args):
+    print('Need this one: ', required1)
+    print('Need this one too:', required2)
+    print('All the rest:', args)
+
+print_more(1, 2, 3, 4, 5, 6)
+
+def print_kwargs(**kwargs):
+    print('Keyword arguments: ', kwargs)
+
+print_kwargs(wine='merlot', entree='mutton', dessert='macaroom')
+
+def echo(anything):
+    'echoは、与えられた入力引数を返す'
+    return anything
+
+#  help(echo)
+
+print(echo.__doc__)
