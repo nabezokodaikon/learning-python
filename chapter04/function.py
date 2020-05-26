@@ -115,3 +115,82 @@ def echo(anything):
 #  help(echo)
 
 print(echo.__doc__)
+
+
+def answer():
+    print(42)
+
+
+def run_something(func):
+    func()
+
+answer()
+run_something(answer)
+
+print(type(run_something))
+
+
+def add_args(arg1, arg2):
+    print(arg1 + arg2)
+
+
+print(type(add_args))
+
+
+def run_something_with_args(func, arg1, arg2):
+    func(arg1, arg2)
+
+
+run_something_with_args(add_args, 5, 9)
+
+
+def sum_args(*args):
+    return sum(args)
+
+
+def run_with_positional_args(func, *args):
+    return func(*args)
+
+
+print(run_with_positional_args(sum_args, 1, 2, 3, 4))
+
+
+def outer(a, b):
+    def inner(c, d):
+        return c + d
+    return inner(a, b)
+
+print(outer(4, 7))
+
+def knights(saying):
+    def inner(quote):
+        return "We are the knights who say: '%s'" % quote
+    return inner(saying)
+
+print(knights('Ni!'))
+
+
+def knights2(saying):
+    def inner2():
+        return "We are the knights who say: '%s'" % saying
+    return inner2
+
+a = knights2('Duck')
+b = knights2('Hasenpfeffer')
+print(type(a))
+print(type(b))
+print(a())
+print(b())
+
+
+def edit_story(words, func):
+    for word in words:
+        print(func(word))
+
+stairs = ['thud', 'meow', 'thud', 'hiss']
+def enliven(word):
+    return word.capitalize() + '!'
+
+edit_story(stairs, enliven)
+
+edit_story(stairs, lambda word: word.capitalize() + '!')
