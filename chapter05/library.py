@@ -62,3 +62,64 @@ print(breakfast_counter - lunch_counter)
 print(lunch_counter - breakfast_counter)
 print(breakfast_counter & lunch_counter)
 print(breakfast_counter | lunch_counter)
+
+quotes = {
+    ('Moe', 'A wise guy, huh?'),
+    ('Larry', 'Ow!'),
+    ('Curry', 'Nyuk nyuk!')
+    }
+for stooge in quotes:
+    print(stooge)
+
+from collections import OrderedDict
+quotes = OrderedDict([
+    ('Moe', 'A wise guy, huh?'),
+    ('Larry', 'Ow!'),
+    ('Curry', 'Nyuk nyuk!')
+    ])
+for stooge in quotes:
+    print(stooge)
+
+def palindrome(word):
+    from collections import deque
+    dq = deque(word)
+    while len(dq) > 1:
+        if dq.popleft() != dq.pop():
+            return False
+    return True
+
+print(palindrome('a'))
+print(palindrome('racecar'))
+print(palindrome(''))
+print(palindrome('halibut'))
+
+def another_palindrome(word):
+    return word == word[::-1]
+
+print(another_palindrome('racecar'))
+print(another_palindrome('halibut'))
+
+import itertools
+for item in itertools.chain([1, 2], ['a', 'b']):
+    print(item)
+
+#  for item in itertools.cycle([1, 2]):
+    #  print(item)
+
+for item in itertools.accumulate([1, 2, 3, 4]):
+    print(item)
+
+def multiply(a, b):
+    return a * b
+
+for item in itertools.accumulate([1, 2, 3, 4], multiply):
+    print(item)
+
+from pprint import pprint
+quotes = OrderedDict([
+    ('Moe', 'A wise guy, huh?'),
+    ('Larry', 'Ow!'),
+    ('Curry', 'Nyuk nyuk!')
+    ])
+print(quotes)
+pprint(quotes)
