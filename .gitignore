@@ -7,3 +7,11 @@ python_memcached*
 six*
 redis*
 !redisio.py
+pyminizip*
+boto3*
+dateutil*
+*.*
+*
+!*.py
+!Dockerfile
+!docker-compose.yml
